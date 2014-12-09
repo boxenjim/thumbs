@@ -12,6 +12,11 @@ describe Idea do
     it 'should have description column' do
       expect(idea.description).to eq 'anIdea'
     end
+
+    it 'should have votes column' do
+      expect(idea.votes).to eq 0
+    end
+
   end
 
   it 'should validate presense of description' do
