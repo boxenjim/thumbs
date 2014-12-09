@@ -1,4 +1,11 @@
 %h1 Thumbs
 
+= form_for Idea.new do |f|
+  = f.label :description
+  = f.text_area :description
+  = f.submit
+
 %ul
   - @ideas.each do |link|
+    %li
+      = link.description
