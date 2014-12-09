@@ -20,4 +20,13 @@ describe IdeasController do
     end
   end
 
+  describe '#thumbsup' do
+    it 'should increase votes by 1' do
+      post :create, idea: {description: 'anIdea'}
+      idea = Idea.last
+      post :thumbsup, id: idea.id
+      expect(idea.reload.votes).to eq 1
+    end
+  end
+
 end
