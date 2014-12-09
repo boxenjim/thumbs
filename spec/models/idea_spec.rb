@@ -14,6 +14,8 @@ describe Idea do
     end
   end
 
-  
+  it 'should validate presense of description' do
+    expect(Idea.create).to be_invalid
+  end
 
 end
