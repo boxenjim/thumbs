@@ -14,7 +14,7 @@ describe Idea do
     end
 
     it 'should have votes column' do
-      expect(idea.votes).to eq 0
+      expect(idea.votes).to be >= 0
     end
 
   end

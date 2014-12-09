@@ -9,11 +9,18 @@ class IdeasController < ApplicationController
     redirect_to action: :index
   end
 
+  def thumbsup
+    idea = Idea.find(params[:id])
+    idea.increment(:votes)
+    if idea.save
+      redirect_to root_url
+    end
+  end
 
   private
 
     def permitted_params
-      params.require(:idea).permit(:description)
+      params.require(:idea).permit(:description, :votes)
     end
 
 end
