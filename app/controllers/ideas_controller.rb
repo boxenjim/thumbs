@@ -9,6 +9,10 @@ class IdeasController < ApplicationController
     redirect_to action: :index
   end
 
+  def show
+    @idea = Idea.find(params[:id])
+  end
+
   def thumbsup
     idea = Idea.find(params[:id])
     idea.increment(:votes)

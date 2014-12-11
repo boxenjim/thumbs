@@ -7,6 +7,6 @@
 %ul
   - @ideas.each do |idea|
     %li
-      = idea.description
+      = link_to idea.description, idea, :method => :get
       = idea.votes
       = button_to 'Thumbs up', thumbsup_idea_path(idea), :method => :post

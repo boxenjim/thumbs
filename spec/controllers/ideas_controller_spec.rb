@@ -20,6 +20,15 @@ describe IdeasController do
     end
   end
 
+  describe '#show' do
+    it 'should render show template' do
+      post :create, idea: {description: 'anIdea'}
+      idea = Idea.last
+      get :show, id: idea.id
+      expect(response).to render_template :show
+    end
+  end
+
   describe '#thumbsup' do
     it 'should increase votes by 1' do
       post :create, idea: {description: 'anIdea'}
