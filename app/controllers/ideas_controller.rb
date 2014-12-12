@@ -11,6 +11,7 @@ class IdeasController < ApplicationController
 
   def show
     @idea = Idea.find(params[:id])
+    @comments = @idea.comments
   end
 
   def thumbsup

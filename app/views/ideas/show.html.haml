@@ -4,5 +4,15 @@
 %h2
   = @idea.votes
 
+= form_for Comment.new do |f|
+  = hidden_field_tag :idea_id, @idea.id
+  = f.text_area :content
+  = f.submit
+
+%ul
+  - @comments.each do |comment|
+    %li
+      = comment.content
+
 %p
   = link_to "Home", ideas_path, :method => :get
