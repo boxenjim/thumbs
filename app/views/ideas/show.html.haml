@@ -4,10 +4,9 @@
 %h2
   = @idea.votes
 
-= form_for Comment.new do |f|
-  = hidden_field_tag :idea_id, @idea.id
+= form_for :comment, :url => idea_comments_path(@idea), :html => { :method => :post } do |f|
   = f.text_area :content
-  = f.submit
+  = f.submit "Comment"
 
 %ul
   - @comments.each do |comment|

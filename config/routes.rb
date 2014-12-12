@@ -6,5 +6,7 @@ Rails.application.routes.draw do
       post :thumbsup
     end
   end
-  resources :comments,          only: [:create]
+  resources :ideas do
+    resources :comments, shallow: true
+  end
 end
