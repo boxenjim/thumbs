@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
     idea = Idea.find(params[:idea_id])
     @comment = idea.comments.build(comment_params)
     if @comment.save
-      redirect_to idea
+      render json: @comment 
     end
   end
 

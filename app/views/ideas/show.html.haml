@@ -4,11 +4,11 @@
 %h2
   = @idea.votes
 
-= form_for :comment, :url => idea_comments_path(@idea), :html => { :method => :post } do |f|
+= form_for(:comment, url: idea_comments_path(@idea), html: {method: :post, id: "comment_form" }, remote: true) do |f|
   = f.text_area :content
   = f.submit "Comment"
 
-%ul
+%ul#comments
   - @comments.each do |comment|
     %li
       = comment.content

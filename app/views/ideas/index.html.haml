@@ -8,5 +8,6 @@
   - @ideas.each do |idea|
     %li
       = link_to idea.description, idea, :method => :get
-      = idea.votes
-      = button_to 'Thumbs up', thumbsup_idea_path(idea), :method => :post
+      %span{id: "votes_#{idea.id}"}= idea.votes
+      = form_for(idea, url: thumbsup_idea_path(idea), method: :post, remote: true) do |f|
+        = f.submit "Thumbs up"
