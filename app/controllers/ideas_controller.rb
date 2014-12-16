@@ -18,7 +18,7 @@ class IdeasController < ApplicationController
     idea = Idea.find(params[:id])
     idea.increment(:votes)
     if idea.save
-      redirect_to root_url
+      render json: idea
     end
   end
 
